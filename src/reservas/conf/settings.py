@@ -43,9 +43,6 @@ DEBUG = True
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["*"])
 
 # Application definition
-
-CORE_APPS = ["reservas.data"]
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -54,7 +51,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-] + CORE_APPS
+    "drf_spectacular",
+    # domain apps
+    "reservas.data"
+]
 
 
 AUTH_USER_MODEL = "data.User"
@@ -153,7 +153,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'reservas',
+    'DESCRIPTION': '',
+    'VERSION': '0.3.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
 
 LOGGING = {

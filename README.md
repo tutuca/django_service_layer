@@ -35,14 +35,15 @@ fork, patch, merge, repeat.
 
 ## roadmap
 
-- [ ] authorization
+- [X] authorization
 - [ ] unit test scaffolding.
 - [ ] rest interface tests.
 - [ ] docker configuration
 - [ ] more environment variables. mainly database related.
-- [ ] better logging.
+- [X] better logging.
 - [ ] enable mypy.
 - [ ] a `CHANGELOG`.
+- [ ] remove ModelViewset ussage in favor of specific bussiness cases.
 
 ## licence
 
